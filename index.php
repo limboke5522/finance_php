@@ -40,7 +40,8 @@
                     </li>
                         <ul class="sub-menu collapse" id="Revenue">
                             <li><a href="index.php?action=Revenue_select">Select Revenue</a></li>
-                            <li><a href="index.php?action=Revenue_select">เพิ่มข้อมูล</a></li>
+                           
+                           
                         </ul>
             
 
@@ -49,7 +50,7 @@
                     </li>
                         <ul class="sub-menu collapse" id="Expenditure">
                             <li><a href="index.php?action=expen_select">Select Expenditure</a></li>
-                            <li><a href="index.php?action=expen_select">เพิ่มข้อมูล</a></li>
+                            
                         </ul>
 
 
@@ -58,7 +59,7 @@
                     </li>
                         <ul class="sub-menu collapse" id="Budget">
                             <li><a href="index.php?action=budget">Select Budget</a></li>
-                            <li><a href="index.php?action=budget">เพิ่มข้อมูล</a></li>
+                            
                         </ul>
                
 

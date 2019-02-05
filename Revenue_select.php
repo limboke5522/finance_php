@@ -6,10 +6,14 @@ include 'cn_db.php';
 
 
 ?>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 <div id="page-content-wrapper">
                 <div align="center">
-                    <h1>Hello THEJANE</h1>
-                    <h2>Revenue</h2>
+                    <h2>REVENUE</h2>
                 </div>
 
 
@@ -51,13 +55,13 @@ include 'cn_db.php';
 
                                                         <tr align="center">
                                                             
-                                                        <td><a href=delete.php?id=<?php echo $row["id"]?>><img src='images/icons/delete.png'></a></td>
-                                                            <td> <a href=formedit.php?id=<?php echo $row["id"]?>><img src='images/icons/writing.png'></a></td>
+                                                        <td><a href=delete.php?id=<?php echo $row["id_reve"]?>><img src='images/icons/delete.png'></a></td>
+                                                            <td> <a href=formedit.php?id=<?php echo $row["id_reve"]?>><img src='images/icons/writing.png'></a></td>
                                                             <td><?php echo $row['date_rn']; ?></td>
                                                             <td><?php echo $row['category']; ?></td>
-                                                            <td><?php echo $row['values_rn']; ?></td>
+                                                            <td><?php echo number_format($row['values_rn'], 2   , '.'  , ','    ); ?></td>
                                                             <td><?php echo $row['name_rn']; ?></td>
-                                                            <td><?php echo $row['id']; ?></td>
+                                                            <td><?php echo $row['id_reve']; ?></td>
                                                             
 
                                                         
@@ -75,10 +79,10 @@ include 'cn_db.php';
                                             </tbody>
                                             </table>
                                 
-                              
-
-
-                                </div>
+                                          
+                                            <a href="form_insert/form_isert_reve.php"> <button class="w3-button w3-circle w3-black w3-right" >+</button></a>
+                                            
+                                           
                         </div>
 
 
@@ -90,3 +94,5 @@ include 'cn_db.php';
 
 
             </div> <!-- /#page-content-wrapper -->
+            
+                   

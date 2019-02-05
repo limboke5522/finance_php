@@ -21,8 +21,7 @@ include 'cn_db.php';
                                     <table class="table table-hover">
                                     <thead class="thead-dark">
                                     <tr>
-                                    <th scope="col">ลบข้อมูล</th>
-                                    <th scope="col">แก้ไข</th>
+                                  
                                     <th scope="col">ว/ด/ป</th>
                                     <th scope="col">ประเภทงบประมาณ</th>
                                     <th scope="col">รายจ่าย</th>
@@ -41,6 +40,8 @@ include 'cn_db.php';
                                     $sql = "SELECT *FROM revenue";
 
                                     $stm = $con->prepare($sql);
+                                    
+                                    $i=1;
 
                                     try{
                                     $stm->execute();
@@ -50,17 +51,16 @@ include 'cn_db.php';
                                     }
 
                                     while($row = $stm->fetch(PDO::FETCH_ASSOC)){?>
-
+                                    
                                     <tr align="center">
 
-                                    <td><a href=delete.php?id=<?php echo $row["id"]?>><img src='images/icons/delete.png'></a></td>
-                                    <td> <a href=formedit.php?id=<?php echo $row["id"]?>><img src='images/icons/writing.png'></a></td>
+                                    
                                     <td><?php echo $row['date_rn']; ?></td>
                                     <td><?php echo $row['category']; ?></td>
                                     <td><?php echo $row['values_rn']; ?></td>
                                     <td><?php echo $row['values_rn']; ?></td>
                                     <td><?php echo $row['name_rn']; ?></td>
-                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo  $i++; ?></td>
 
 
 
