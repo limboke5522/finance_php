@@ -22,12 +22,10 @@ include 'cn_db.php';
                                     <thead class="thead-dark">
                                     <tr>
                                   
-                                    <th scope="col">ว/ด/ป</th>
-                                    <th scope="col">ประเภทงบประมาณ</th>
-                                    <th scope="col">รายจ่าย</th>
-                                    <th scope="col">รายรับ</th>
+                                  
                                     <th scope="col">รายการ</th>
-                                    <th scope="col" >รหัส</th>
+                                    <th scope="col">งบ</th>
+                                    
 
                                     </tr>
                                     </thead>
@@ -35,9 +33,9 @@ include 'cn_db.php';
 
 
                                     <?php 
+                                    
 
-
-                                    $sql = "SELECT *FROM revenue";
+                                    $sql = "SELECT revenue.name_rn,revenue.values_rn,revenue.category,revenue.date_rn,expenditure.name_ex,expenditure.values_ex,expenditure.category, category_fn.name_cg FROM revenue INNER JOIN category_fn INNER JOIN expenditure on revenue.category=category_fn.name_cg=expenditure.category ";
 
                                     $stm = $con->prepare($sql);
                                     
@@ -49,18 +47,18 @@ include 'cn_db.php';
                                     }catch(Exception $exc){
                                     echo $exc->getTraceAsString();
                                     }
-
-                                    while($row = $stm->fetch(PDO::FETCH_ASSOC)){?>
+                                    
+                                    
+                                    while($row = $stm->fetch(PDO::FETCH_ASSOC)){
+                                        
+                                        ?>
                                     
                                     <tr align="center">
 
                                     
-                                    <td><?php echo $row['date_rn']; ?></td>
-                                    <td><?php echo $row['category']; ?></td>
-                                    <td><?php echo $row['values_rn']; ?></td>
-                                    <td><?php echo $row['values_rn']; ?></td>
                                     <td><?php echo $row['name_rn']; ?></td>
-                                    <td><?php echo  $i++; ?></td>
+                                    <td><?php echo $row['name_cg']; ?></td>
+                                 
 
 
 

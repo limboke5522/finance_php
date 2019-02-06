@@ -27,8 +27,8 @@ include 'cn_db.php';
                                                 <th scope="col">ลบข้อมูล</th>
                                                 <th scope="col">แก้ไข</th>
                                                 <th scope="col">ว/ด/ป</th>
-                                                <th scope="col">ประเภทงบประมาณ</th>
                                                 <th scope="col">จำนวนเงิน</th>
+                                                <th scope="col">ประเภทงบประมาณ</th>
                                                 <th scope="col">รายการ</th>
                                                 <th scope="col" >รหัส</th>
                                                 
@@ -41,41 +41,63 @@ include 'cn_db.php';
 
 
                                                     $sql = "SELECT *FROM expenditure";
-
+                                                   
                                                     $stm = $con->prepare($sql);
-
+                                                   
                                                     try{
                                                         $stm->execute();
+                                                        
 
                                                     }catch(Exception $exc){
                                                     echo $exc->getTraceAsString();
                                                     }
 
-                                                    while($row = $stm->fetch(PDO::FETCH_ASSOC)){?>
+                                                    while($row = $stm->fetch(PDO::FETCH_ASSOC)){
+                                                        
+                                                       
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        ?>
 
                                                         <tr align="center">
                                                             
                                                         <td><a href=delete.php?id=<?php echo $row["id_expen"]?>><img src='images/icons/delete.png'></a></td>
                                                             <td> <a href=formedit.php?id=<?php echo $row["id_expen"]?>><img src='images/icons/writing.png'></a></td>
                                                             <td><?php echo $row['time_ex']; ?></td>
-                                                            <td><?php echo $row['category']; ?></td>
                                                             <td><?php echo number_format($row['values_ex'], 2   , '.'  , ','    ); ?></td>
+                                                            <td><?php echo $row['category']; ?></td>
                                                             <td><?php echo $row['name_ex']; ?></td>
                                                             <td><?php echo $row['id_expen']; ?></td>
                                                             
-
+                                                  
                                                         
+                                                    <?php }?>
+
+                                                        <?php 
 
 
-
-                                                        
-                                                        </tr>
-
-
-                                                    <?php  }?>
-
-
-
+                                                            $sql = "SELECT sum(values_ex) as total FROM expenditure";
+                                                            $stm = $con->prepare($sql);
+                                                            $stm->execute();
+                                                           $rowj= $stm->fetch(PDO::FETCH_ASSOC);
+                                                    ?>  
+                                                    
+                                                    <tr bgcolor="#D3D3D3">
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td align="left"></td>
+                                                    <td align="center"><?php echo number_format($rowj['total'], 2   , '.'  , ','    ); ?>฿</td>
+                                                    <th>รวม</th>
+                                                    <td></td>
+                                                    <td></td>
+                                                       
+                                                    </tr>
                                             </tbody>
                                             </table>
                                 
