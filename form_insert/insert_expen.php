@@ -43,7 +43,7 @@ try{
     $stm->execute();
 
 echo "<script>alert('บันทึกข้อมูลเรียบร้อยแล้ว');</script>";
-echo "<script>window.location='../index.php?action=expen_select'</script>";
+echo "<script>window.close();</script>";
 } catch(Exception $exc){
     echo $exc->getTraceAsString();
 }

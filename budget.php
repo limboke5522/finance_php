@@ -26,9 +26,9 @@ include 'cn_db.php';
                                                 <tr>
                                                 <th scope="col">ลบข้อมูล</th>
                                                 <th scope="col">แก้ไข</th>
-
+                                                <th scope="col">จำนวนเงิน</th>
                                                 <th scope="col">ประเภทงบประมาณ</th>
-                                                <th scope="col" >รหัส</th>
+                                                <th scope="col" >ลำดับ</th>
                                                 
                                                 </tr>
                                             </thead>
@@ -53,8 +53,10 @@ include 'cn_db.php';
 
                                                         <tr align="center">
                                                             
-                                                        <td><a href=delete.php?id=<?php echo $row["id_cg"]?>><img src='images/icons/delete.png'></a></td>
+                                                        <td><a href=delete/delete_budget.php?id_cg=<?php echo $row["id_cg"]?>><img src='images/icons/delete.png'></a></td>
                                                             <td> <a href=formedit.php?id=<?php echo $row["id_cg"]?>><img src='images/icons/writing.png'></a></td>
+
+                                                            <td><?php echo number_format($row['values_bg'], 2   , '.'  , ','    ); ?>฿</td>
                                                             
                                                             <td><?php echo $row['name_cg']; ?></td>
                                                             <td><?php echo $row['id_cg']; ?></td>
@@ -76,8 +78,13 @@ include 'cn_db.php';
                                             </table>
                                 
                                           
-                                            <a href="form_insert/form_isert_budget.php"> <button class="w3-button w3-circle w3-black w3-right" >+</button></a>
-                                            
+                                            <script>
+                                            function myFunction() {
+					                            window.open("form_insert/form_isert_budget.php","50%","50%","");
+
+					                    }</script>
+
+                                             <button class="w3-button w3-circle w3-black w3-right" onclick="myFunction()">+</button>
                                            
                         </div>
 

@@ -30,7 +30,7 @@ $date_rn= $_POST['date_time'];
 // $pro_reve = $new_pdf_name;
 
 //insert ข้อมูล
-$sql1="INSERT INTO revenue( name_rn,values_rn, category, date_rn) VALUES (:p1,:p2,:p3 ,:p4)";
+$sql1="INSERT INTO revenue( name_rn,values_rn, category_rn, date_rn) VALUES (:p1,:p2,:p3 ,:p4)";
 $stm=$con->prepare($sql1);
 $stm->bindParam(':p1',$name_rn);
 $stm->bindParam(':p2',$values_rn);
@@ -44,7 +44,7 @@ try{
     
     echo "<script>alert('บันทึกข้อมูลเรียบร้อยแล้ว');</script>";
 
-echo "<script>window.location='../index.php?action=Revenue_select'</script>";
+    echo "<script>window.close();</script>";
 } catch(Exception $exc){
     echo $exc->getTraceAsString();
 }

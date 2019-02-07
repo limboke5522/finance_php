@@ -68,10 +68,17 @@
 					<span class="label-input100"><h5>ชื่อ งบประมาณ *</h5></span>
 					<input class="input100" type="text" name="namebudget" placeholder="Enter Your NameBudget">
 				</div>
+				<div class="wrap-input100 validate-input bg1" data-validate="Please Type Your AmountBudget">
+					<span class="label-input100"><h5>จำนวนเงิน *</h5></span>
+					<input class="input100" type="text" name="amount" placeholder="Enter Your AmountBudget">
+				</div>
 
 				
 
 				<div class="container-contact100-form-btn">
+
+				
+
 					<button class="contact100-form-btn">
 						<span>
 							Submit

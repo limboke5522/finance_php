@@ -1,8 +1,21 @@
 <?php
 include '../cn_db.php';
 
- $name_cg= $_POST['namebudget'];
 
+// $sql = "SELECT *FROM category_fn";
+// $stm = $con->prepare($sql);
+
+
+//     $stm->execute();
+
+//     $row = $stm->fetch(PDO::FETCH_ASSOC))
+//     extract($row);
+
+
+ $name_bg= $_POST['namebudget'];
+
+ 
+ $values_bg= $_POST['amount'];
 
 // $ext = pathinfo(basename($_FILES['pro_expen']['name']), PATHINFO_EXTENSION);
 // $new_pdf_name = 'pro_ex'.uniqid().".".$ext;
@@ -28,17 +41,22 @@ include '../cn_db.php';
 // $pro_reve = $new_pdf_name;
 
 //insert ข้อมูล
-$sql1="INSERT INTO category_fn( name_cg) VALUES (:p1)";
+
+
+$sql1="INSERT INTO category_fn( name_cg,values_bg) VALUES (:p1,:p2)";
 $stm=$con->prepare($sql1);
-$stm->bindParam(':p1',$name_cg);
+$stm->bindParam(':p1',$name_bg);
+$stm->bindParam(':p2',$values_bg);
 
 
 
 try{
     $stm->execute();
-    header("Location:../index.php?action=budget");
-// echo "<script>alert('บันทึกข้อมูลเรียบร้อยแล้ว');</script>";
-// echo "<script>window.location='../index.php?action=budget'</script>";
+    
+echo "<script>alert('บันทึกข้อมูลเรียบร้อยแล้ว');</script>";
+echo "<script>window.close();</script>";
+
+
 } catch(Exception $exc){
     echo $exc->getTraceAsString();
 }

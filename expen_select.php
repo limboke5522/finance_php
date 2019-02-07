@@ -67,7 +67,7 @@ include 'cn_db.php';
 
                                                         <tr align="center">
                                                             
-                                                        <td><a href=delete.php?id=<?php echo $row["id_expen"]?>><img src='images/icons/delete.png'></a></td>
+                                                        <td><a href=delete/delete_expen.php?id=<?php echo $row["id_expen"]?>><img src='images/icons/delete.png'></a></td>
                                                             <td> <a href=formedit.php?id=<?php echo $row["id_expen"]?>><img src='images/icons/writing.png'></a></td>
                                                             <td><?php echo $row['time_ex']; ?></td>
                                                             <td><?php echo number_format($row['values_ex'], 2   , '.'  , ','    ); ?></td>
@@ -102,7 +102,12 @@ include 'cn_db.php';
                                             </table>
                                 
                                           
-                                            <a href="form_insert/form_isert_expen.php"> <button class="w3-button w3-circle w3-black w3-right" >+</button></a>
+                                            <script>
+                                            function myFunction() {
+					                            window.open("form_insert/form_isert_expen.php","50%","50%","");
+					                    }</script>
+
+                                             <button class="w3-button w3-circle w3-black w3-right" onclick="myFunction()">+</button>
                                             
                                            
                         </div>

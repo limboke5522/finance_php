@@ -15,11 +15,19 @@ include 'cn_db.php';
                 <div align="center">
                     <h2>REVENUE</h2>
                 </div>
+                <br>
 
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700">
 
+<form class="search" >
+  <div class="search__wrapper" >
+    <input type="text" name="" placeholder="Search for..." class="search__field">
+    <button type="submit" class="fa fa-search search__icon"></button>
+  </div>
+</form>
 
-
-                <div>
+               <br><br>
 
                                                             <table class="table table-hover">
                                             <thead class="thead-dark">
@@ -72,11 +80,11 @@ include 'cn_db.php';
 
                                                         <tr align="center">
                                                             
-                                                        <td><a href=delete.php?id=<?php echo $row["id_reve"]?>><img src='images/icons/delete.png'></a></td>
+                                                        <td><a href=delete/delete_reve.php?id=<?php echo $row["id_reve"]?>><img src='images/icons/delete.png'></a></td>
                                                             <td> <a href=formedit.php?id=<?php echo $row["id_reve"]?>><img src='images/icons/writing.png'></a></td>
                                                             <td><?php echo $row['date_rn']; ?></td>
                                                             <td><?php echo number_format($row['values_rn'], 2   , '.'  , ','    ); ?></td>
-                                                            <td><?php echo $row['category']; ?></td>
+                                                            <td><?php echo $row['category_rn']; ?></td>
                                                             
                                                             <td><?php echo $row['name_rn']; ?></td>
                                                             <td><?php echo $row['id_reve']; ?></td>
@@ -114,9 +122,13 @@ include 'cn_db.php';
 
                                             </tbody>
                                             </table>
-                                
-                                          
-                                            <a href="form_insert/form_isert_reve.php"> <button class="w3-button w3-circle w3-black w3-right" >+</button></a>
+                                       
+                                        <script>
+                                            function myFunction() {
+					                            window.open("form_insert/form_isert_reve.php","50%","50%","");
+					                    }</script>
+
+                                             <button class="w3-button w3-circle w3-black w3-right" onclick="myFunction()">+</button>
                                             
                                            
                         </div>
